@@ -75,6 +75,7 @@ var app = {
         element.addEventListener('click',function(){
             
             if(app.fieldsValidation()){
+                app.sendInformation();
                 window.location.href='product.html';   
             }else{
                 alert('All the fields must be filled in order to proceed.');
@@ -82,6 +83,18 @@ var app = {
 
         });
     },
+    sendInformation:function(){
+        var operation_name = document.getElementById('operation-name').value;
+        var operation_line = document.getElementById('operation-line').value;
+        var operation_op   = document.getElementById('operation-op').value;
+        var product_name   = document.getElementById('product-name').value;
+        var product_pippo  = document.getElementById('product-pippo').value;
+        localStorage.setItem('operation_name',operation_name);
+        localStorage.setItem('operation_line',operation_line);
+        localStorage.setItem('operation_op',operation_op);
+        localStorage.setItem('product_name',product_name);
+        localStorage.setItem('product_pippo',product_pippo);
+    }
     fieldsValidation:function(){
         var operation_name = document.getElementById('operation-name').value;
         var operation_line = document.getElementById('operation-line').value;
