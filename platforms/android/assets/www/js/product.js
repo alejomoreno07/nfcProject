@@ -98,7 +98,6 @@ var app = {
         var defect_number  = document.getElementById('defect_number').value;
         var product_number = document.getElementById('product_number').value;
         var severity       = $("input[name=severity]:checked").next().text();
-        alert(severity);
         localStorage.setItem('defect_number',defect_number);
         localStorage.setItem('product_number',product_number);
         localStorage.setItem('severity',severity);
