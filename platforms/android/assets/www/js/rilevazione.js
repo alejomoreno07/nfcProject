@@ -33,25 +33,16 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        this.receivedEvent('deviceready');
         app.fillDate('fecha-content');
         app.setNfcEvent('operazione-search',1);
         app.setNfcEvent('product-search',2);
+        app.setSubmit('send-btn-div');
     },
     operation_enable: function(){
         app.operation.click=true;
     },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-       
-    },
-    listeningNFC: function(){
-        
-    },
-    doNothingOnNfc: function(nfcEvent){
-
-    },
     onNfc: function(nfcEvent){
+        // Operation
         if(app.op == 1){
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
@@ -60,6 +51,7 @@ var app = {
             app.fillData(ndefMessage,'operation-op',2);
             app.noOperation;
         }
+        // Product
         else if(app.op == 2){
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
@@ -76,6 +68,28 @@ var app = {
         var year  = today.getFullYear();
         var fecha = document.getElementById(idElement);
         fecha.innerHTML= day+"-"+month+"-"+year;
+    },
+    setSubmit:function(idElement){
+        var element = document.getElementById(idElement);
+
+        element.addEventListener('click',function(){
+            
+            if(app.fieldsValidation()){
+                window.location.href='product.html';   
+            }else{
+                alert('All the fields must be filled in order to proceed.');
+            }
+
+        });
+    },
+    fieldsValidation:function(){
+        var operation_name = document.getElementById('operation-name').value;
+        var operation_line = document.getElementById('operation-line').value;
+        var operation_op   = document.getElementById('operation-op').value;
+        var product_name   = document.getElementById('product-name').value;
+        var product_pippo  = document.getElementById('product-pippo').value;
+        return operation_name!='' && operation_line!='' && operation_op!='' && product_name!='' && product_pippo!='';
+
     },
     setNfcEvent:function(idElement,op){
         var element=document.getElementById(idElement);
