@@ -2,12 +2,24 @@
 	width: 100%;
 }
 
+#defect_number{
+	padding-left: 0px;
+}
+
+#fecha{
+	width: 100%;
+}
+
 .fixed{
 	position: fixed;
 }
 
 .full-width{
 	width: 100%;
+}
+
+#label{
+	height: 100%;
 }
 
 .no-margin{
@@ -18,14 +30,6 @@
 	padding: 0px;
 }
 
-#fecha{
-	width: 100%;
-}
-
-#label{
-	height: 100%;
-}
-
 p{
 	margin:0px;
 }
@@ -33,6 +37,10 @@ p{
 #prueba{
 	width: 100%;
 	color: white;
+}
+
+#product_number{
+	padding-right: 0px;
 }
 
 .row{
@@ -64,8 +72,6 @@ p{
 	overflow: hidden;
 	margin-bottom: 15%;
 }
-
-
 
 .table-header-cell{
 	background: #00b8d4;

@@ -34,8 +34,7 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
         app.fillDate('fecha-content');
-        app.setNfcEvent('operazione-search',1);
-        app.setNfcEvent('product-search',2);
+        app.getInformation();
         app.setSubmit('send-btn-div');
     },
     operation_enable: function(){
@@ -76,32 +75,38 @@ var app = {
             
             if(app.fieldsValidation()){
                 app.sendInformation();
-                window.location.href='product.html';   
+                window.location.href='photo.html';   
             }else{
                 alert('All the fields must be filled in order to proceed.');
             }
 
         });
     },
+    setData:function(idElement, data){
+        var element = document.getElementById(idElement);
+        element.value = data;
+        element.nextElementSibling.className ="active";
+    },
+    getInformation:function(){
+        var name  = localStorage.getItem("product_name");
+        var pippo = localStorage.getItem("product_pippo");
+        app.setData('product-name',name);
+        app.setData('product-pippo',pippo);
+
+    },
     sendInformation:function(){
-        var operation_name = document.getElementById('operation-name').value;
-        var operation_line = document.getElementById('operation-line').value;
-        var operation_op   = document.getElementById('operation-op').value;
-        var product_name   = document.getElementById('product-name').value;
-        var product_pippo  = document.getElementById('product-pippo').value;
-        localStorage.setItem('operation_name',operation_name);
-        localStorage.setItem('operation_line',operation_line);
-        localStorage.setItem('operation_op',operation_op);
-        localStorage.setItem('product_name',product_name);
-        localStorage.setItem('product_pippo',product_pippo);
+        var defect_number  = document.getElementById('defect_number').value;
+        var product_number = document.getElementById('product_number').value;
+        var severity       = $("input[name=severity]:checked").next().text();
+        alert(severity);
+        localStorage.setItem('defect_number',defect_number);
+        localStorage.setItem('product_number',product_number);
+        localStorage.setItem('severity',severity);
     },
     fieldsValidation:function(){
-        var operation_name = document.getElementById('operation-name').value;
-        var operation_line = document.getElementById('operation-line').value;
-        var operation_op   = document.getElementById('operation-op').value;
-        var product_name   = document.getElementById('product-name').value;
-        var product_pippo  = document.getElementById('product-pippo').value;
-        return operation_name!='' && operation_line!='' && operation_op!='' && product_name!='' && product_pippo!='';
+        var defect_number = document.getElementById('defect_number').value;
+        var product_number = document.getElementById('product_number').value;
+        return defect_number!='' && product_number!='';
 
     },
     setNfcEvent:function(idElement,op){
