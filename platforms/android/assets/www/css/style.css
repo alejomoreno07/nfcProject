@@ -1,0 +1,74 @@
+#button-add{
+	width: 100%;
+}
+
+.fixed{
+	position: fixed;
+}
+
+.full-width{
+	width: 100%;
+}
+
+.no-margin{
+	margin: 0px;
+}
+
+.no-padding{
+	padding: 0px;
+}
+
+#fecha{
+	width: 100%;
+}
+
+#label{
+	height: 100%;
+}
+
+p{
+	margin:0px;
+}
+
+#prueba{
+	width: 100%;
+	color: white;
+}
+
+.row{
+	width:100%;
+	margin-bottom: 10px;
+}
+
+.search-btn{
+	color:white;
+}
+
+#send-btn-div{
+	width: fit-content !important;
+}
+
+.table-col-1{
+	margin-right:1%;
+}
+
+.table-col-1,.cell{
+	background: white;	
+}
+
+.table-col-2{
+	margin-right: 1%;
+}
+
+.table-content{
+	overflow: hidden;
+	margin-bottom: 15%;
+}
+
+
+
+.table-header-cell{
+	background: #00b8d4;
+	color: white;
+
+}
