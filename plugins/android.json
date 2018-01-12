@@ -12,6 +12,9 @@
     },
     "phonegap-nfc": {
       "PACKAGE_NAME": "io.cordova.NFCfinal"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "io.cordova.NFCfinal"
     }
   },
   "dependent_plugins": {}

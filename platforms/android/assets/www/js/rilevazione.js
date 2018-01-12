@@ -41,17 +41,8 @@ var app = {
     operation_enable: function(){
         app.operation.click=true;
     },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-       
-    },
-    listeningNFC: function(){
-        
-    },
-    doNothingOnNfc: function(nfcEvent){
-
-    },
     onNfc: function(nfcEvent){
+        // Operation
         if(app.op == 1){
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
@@ -60,6 +51,7 @@ var app = {
             app.fillData(ndefMessage,'operation-op',2);
             app.noOperation;
         }
+        // Product
         else if(app.op == 2){
             var tag = nfcEvent.tag,
             ndefMessage = tag.ndefMessage;
