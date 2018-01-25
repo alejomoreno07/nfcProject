@@ -33,7 +33,10 @@ var app = {
         app.fillDate('fecha-content');
 
         $.getJSON('http://weisseamsel.altervista.org/nfcProject/getAnomaly.php',function(data){
-            console.log(JSON.stringify(data));
+            jQuery.each(data, function(i,val){
+                console.log(JSON.stringify(val));
+                app.fillRow(val);
+            });
         });
 
     },
@@ -50,7 +53,35 @@ var app = {
     receivedEvent: function(id) {
        
     },
-   
+    fillRow: function(data){
+        var container = document.getElementById('table_container');
+
+        var row     = document.createElement("div");
+        row.className   = "row";
+        row.id      = "anomaly"+data["id"];
+        
+        var anomaly_code    = document.createElement("div");
+        anomaly_code.className  = "col xl7 l7 m7 s7 table-cell center-align full-width no-margin no-padding table-col-1 cell truncate";
+        anomaly_code.id     = "col_anomaly"+data["id"];
+        anomaly_code.innerHTML = data["anomaly_code"];
+
+        var priority   = document.createElement("div");
+        priority.className = "col xl4 l4 m4 s4 table-cell center-align full-width no-margin no-padding table-col-2 cell";
+        priority.id    = "col_priority"+data["id"];
+        priority.innerHTML = data["priority"];
+
+        var status     = document.createElement("div");
+        status.className   = "col xl1 l1 m1 s1 table-cell center-align full-width no-margin no-padding table-col-3 cell";
+        status.id      = "col_status"+data["id"]; 
+        status.innerHTML = data["status"];
+
+        row.appendChild(anomaly_code);
+        row.appendChild(priority);
+        row.appendChild(status);
+
+        container.appendChild(row);
+        console.log(data["priority"]);
+    } 
    
 };
 
