@@ -17,13 +17,11 @@
  * under the License.
  */
 
-var localStorage = window.localStorage;
 
 
 
 var app = {
     // Application Constructor
-    op:0,
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
@@ -33,53 +31,12 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-        },
+    
+    },
    
    
 };
-/*
 
-setListener: function(){
-    document.getElementById("cameraTakePicture").addEventListener("click", navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI }););
-}
-function cameraTakePicture() { 
-   navigator.camera.getPicture(onSuccess, onFail, {  
-      quality: 50, 
-      destinationType: Camera.DestinationType.DATA_URL 
-   });  
-   
-   function onSuccess(imageData) { 
-      var image = document.getElementById('myImage'); 
-      image.src = "data:image/jpeg;base64," + imageData; 
-   }  
-   
-   function onFail(message) { 
-      alert('Failed because: ' + message); 
-   } 
-}
-
-function openCamera(selection) {
-
-    var srcType = Camera.PictureSourceType.CAMERA;
-    var options = setOptions(srcType);
-    var func = createNewFileEntry;
-
-    if (selection == "camera-thmb") {
-        options.targetHeight = 100;
-        options.targetWidth = 100;
-    }
-
-    navigator.camera.getPicture(function cameraSuccess(imageUri) {
-
-        // Do something
-
-    }, function cameraError(error) {
-        console.debug("Unable to obtain picture: " + error, "app");
-
-    }, options);
-}
-
-*/
 
  
 function cameraTakePicture() { 
@@ -88,8 +45,8 @@ function cameraTakePicture() {
    
     function onSuccess(imageURI) {
         var image = document.getElementById('myImage');
-        image.targetWidth=200px; 
-        image.targetHeight=200px;
+        //image.targetWidth=200px; 
+        //image.targetHeight=200px;
         image.src = imageURI;
     }
    

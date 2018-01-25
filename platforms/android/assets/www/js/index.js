@@ -32,6 +32,10 @@ var app = {
         this.receivedEvent('deviceready');
         app.fillDate('fecha-content');
 
+        $.getJSON('http://weisseamsel.altervista.org/nfcProject/getAnomaly.php',function(data){
+            console.log(JSON.stringify(data));
+        });
+
     },
     fillDate:function(idElement){
         var today = new Date();
