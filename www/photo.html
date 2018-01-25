@@ -44,7 +44,14 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title>Hello World</title>
     </head>
-    <body class="grey lighten-2">
+    <body class="grey lighten-2 ">
+
+<div class=" center-align">
+    <button id="cameraTakePicture" onclick="cameraTakePicture()" class="btn waves-effect waves-light cyan accent-4" type="submit" name="action">Take Picture <i class="material-icons right">camera</i>
+         </button>
+        <br>
+    <img id = "myImage" class="center-align" width="500px" height="500px" style="background-color: cyan"></img>
+</div>
         
             
         
@@ -53,6 +60,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/product.js"></script>
+        <script type="text/javascript" src="js/photo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     </body>
