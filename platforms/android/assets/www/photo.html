@@ -56,10 +56,15 @@
     </div>
      <div class="row"></div>
      <div class="row">
-        <div class="col xl10  l10  m10  s10 ">
-            <img id = "myImage" class="center-align"></img>
+        <div class="col xl10  l10  m10  s10 " id="divImagePhoto">
+            <div id="divCircle">    </div>
+            <img id = "myImage" class="center-align" onclick="moveCircle(event, document.getElementById('divCircle'))"><div id="divCircle" touchstart="dragElement(this)">    </div></img>
+            
+            
+                
         </div>
      </div>
+     <p id="debug"></p>
     
 </div>
         
