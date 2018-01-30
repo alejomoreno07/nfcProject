@@ -2,11 +2,17 @@
 	width: 100%;
 }
 
+#circleDiv{
+	
+}
+
 #circleShape{
 	border: 1px solid red;
 	border-radius: 50%;
 	width: 100px;
 	height: 100px;
+	z-index: 1000;
+	background: transparent;
 }
 
 #defect_number{
@@ -26,7 +32,7 @@
 }
 
 #imageContainer{
-	position: absolute;
+	z-index: 10;
 }
 
 #label{
@@ -49,12 +55,8 @@
 	background: cyan;
 	max-width: 100%;
 	max-height: 100%;
-<<<<<<< HEAD
-	position: absolute;
-
-=======
-	z-index: 0;
->>>>>>> 9983b3f6b52baec554b87dc3b0e149f443cdf048
+	position: relative;
+	z-index: 10;
 }
 
 

@@ -83,7 +83,7 @@ var app = {
    
 };
 
-    var mouseEventTypes = {
+var mouseEventTypes = {
     touchstart : "mousedown",
     touchmove : "mousemove",
     touchend : "mouseup"
@@ -127,30 +127,44 @@ var app = {
     document.getElementById("debug").innerHTML = "x "+x+" ,y "+y;
 }
 
+function createDraggableElement(containerId, typeElement, idElement, classElement){
+    //Container for the draggable element
+    var container = document.getElementById(containerId);
+
+    //Setting its features (id and className)
+    var element = document.createElement(typeElement);
+    element.id = idElement;
+    element.className = classElement;
+
+    //Putting the circle inside the container
+    container.appendChild(element);
+
+    //Setting its property of draggable
+    var name_div = "#"+idElement;
+    $(name_div).draggable({
+        containment: "#myImage"
+    });
+
+}
+
 
 function cameraTakePicture() { 
-   navigator.camera.getPicture(onSuccess, onFail, { quality: 50, allowEdit:true, destinationType: Camera.DestinationType.DATA_URI });  
+   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,  destinationType: Camera.DestinationType.DATA_URI });  
    
    
     function onSuccess(imageURI) {
         var image = document.getElementById('myImage');
         image.src = imageURI;
-<<<<<<< HEAD
+        createDraggableElement("imageContainer","div","circleShape","ui-widget-content");
         var circle = document.getElementById("circleShape");
-        circle.style="display:block;";
-=======
-        dragElement(document.getElementById('divCircle'));
+        dragElement(document.getElementById('circleDiv'));
         
->>>>>>> 9983b3f6b52baec554b87dc3b0e149f443cdf048
     }
    function onFail(message) { 
       alert('Failed because: ' + message); 
    }
 }
 
-<<<<<<< HEAD
-$("#circleShape").draggable();
-=======
    
     
 
@@ -194,6 +208,5 @@ function dragElement(elmnt) {
     document.onmousemove = null;
   }
 }
->>>>>>> 9983b3f6b52baec554b87dc3b0e149f443cdf048
 
 app.initialize();
