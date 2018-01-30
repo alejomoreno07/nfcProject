@@ -32,14 +32,31 @@
 #label{
 	height: 100%;
 }
+#divImagePhoto{
+	position: relative;
+}
+#divCircle{
+	border-radius: 50px;
+ 	border: 5px solid #d32f2f;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	visibility: hidden;
+	z-index: 1;
+}
 
 #myImage{
 	background: cyan;
 	max-width: 100%;
 	max-height: 100%;
+<<<<<<< HEAD
 	position: absolute;
 
+=======
+	z-index: 0;
+>>>>>>> 9983b3f6b52baec554b87dc3b0e149f443cdf048
 }
+
 
 .no-margin{
 	margin: 0px;
