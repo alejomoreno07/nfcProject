@@ -54,13 +54,6 @@ var app = {
         originalEvent.target.dispatchEvent(event);
     });
 }
- function myDrag(){
-
-    var circle = document.getElementById('divCircle');
-    var divGrande = document.getElementById('divImagePhoto');
-    divGrande.append(circle)
-    circle.draggable();
- }
 
  function moveCircle(event , circle){
     
@@ -72,12 +65,12 @@ var app = {
 
     var x = event.clientX;
     var y = event.clientY;
-    if(x>=(larghezza-50))
+    if(x>=(larghezza - 50))
         var left = larghezza -50;
     else
         var left = x - 50;
 
-    if(y>=(altezza-125))
+    if(y>=(altezza-75))
         var top = altezza-125;
     else
         var top = y - 125;
@@ -85,7 +78,6 @@ var app = {
     circle.style.left= left+"px";
     circle.style.top= top+"px";
     
-
     document.getElementById("debug").innerHTML = "x "+x+" ,y "+y;
 }
 
@@ -98,7 +90,7 @@ function cameraTakePicture() {
         var image = document.getElementById('myImage');
         image.src = imageURI;
         dragElement(document.getElementById('divCircle'));
-        letDrag();
+        
     }
    
    function onFail(message) { 
@@ -106,22 +98,16 @@ function cameraTakePicture() {
    } 
 }
 
-    function letDrag(){
-        console.log("did that letDrag");
-        var drag = document.getElementById('divCircle');
-        drag.draggable();
-    }
+   
     
 
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  if (document.getElementById(elmnt.id + "header")) {
-    /* if present, the header is where you move the DIV from:*/
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    /* otherwise, move the DIV from anywhere inside the DIV:*/
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;    
     elmnt.onmousedown = dragMouseDown;
-  }
+    var pic = document.getElementById('myImage');
+    var altezza = pic.height;
+    var larghezza = pic.width;
+
 
   function dragMouseDown(e) {
     e = e || window.event;
@@ -136,13 +122,17 @@ function dragElement(elmnt) {
   function elementDrag(e) {
     e = e || window.event;
     // calculate the new cursor position:
+
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    // set the element's new position:
+
     elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+   
+    // set the element's new position:
+   
   }
 
   function closeDragElement() {
