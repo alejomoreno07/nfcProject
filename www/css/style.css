@@ -2,6 +2,13 @@
 	width: 100%;
 }
 
+#circleShape{
+	border: 1px solid red;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+}
+
 #defect_number{
 	padding-left: 0px;
 }
@@ -18,6 +25,10 @@
 	width: 100%;
 }
 
+#imageContainer{
+	position: absolute;
+}
+
 #label{
 	height: 100%;
 }
@@ -26,6 +37,8 @@
 	background: cyan;
 	max-width: 100%;
 	max-height: 100%;
+	position: absolute;
+
 }
 
 .no-margin{
@@ -35,6 +48,7 @@
 .no-padding{
 	padding: 0px;
 }
+
 
 p{
 	margin:0px;

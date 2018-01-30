@@ -42,12 +42,54 @@
         <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
         <link rel="stylesheet" type="text/css" href="css/normalize.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+          
+
         <title>Hello World</title>
     </head>
     <body class="grey lighten-2 ">
 
-<div class=" center-align">
+<div class="container-fluid center-align">
     <div class="row"></div>
+    <div class="row ">
+        <div class="col xl5 l5 m5 s5 white valign-wrapper center-align z-depth-2" id="fecha">
+            <p class="flow-text full-width no-margin " id="fecha-content">
+            </p>
+        </div>
+        <div class="col xl5 offset-xl2 l5 offset-l2 m5 offset-m2 s5 offset-s2  cyan accent-4 valign-wrapper center-align no-margin z-depth-2" id="label">
+            <p class="flow-text  valign full-width no-margin" id="prueba">
+                ICP
+            </p>
+        </div>
+    </div>
+    <div class="row"></div>
+            <div class="row" id="prodotto" >
+                <div class="col xl7 l7 m7 s7 left-align flow-text" id="prodotto-label">
+                    PRODOTTO
+                </div>
+            </div>
+            <div class="divider full-width no-margin no-padding black"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+
+            <div class="row">
+                <div class="col xl12 l12 m12 s12 full-width no-margin no-padding">
+
+                    <div class="row">
+                        <div class="input-field col xl12 l12 m12 s12 full-width no-margin no-padding">
+                          <input disabled id="product-name" type="text" class="validate" >
+                          <label for="product-name">Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col xl12 l12 m12 s12 full-width no-margin no-padding">
+                          <input disabled id="product-pippo" type="text"  class="validate" >
+                          <label for="product-pippo">PIPPO</label>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
     <div class="row">
         <div class="col xl8  l8  m8  s8">
             <button id="cameraTakePicture" onclick="cameraTakePicture()" class="btn waves-effect waves-light cyan accent-4" type="submit" name="action">Take Picture <i class="material-icons right">camera</i>
@@ -56,10 +98,17 @@
     </div>
      <div class="row"></div>
      <div class="row">
-        <div class="col xl10  l10  m10  s10 ">
+        <div id="circleShape" class="ui-widget-content" ></div>
+        <div id="imageContainer" class="col xl10  l10  m10  s10 ">
             <img id = "myImage" class="center-align"></img>
+            
         </div>
      </div>
+     <div class="row" id="send-btn-div">
+        <div class="col xl1 l1 m1 s1  btn-floating cyan accent-4">
+            <i class="material-icons">send</i>
+        </div>
+    </div>
     
 </div>
         
@@ -67,10 +116,16 @@
         
 
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>  
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" ></script>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/photo.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
+    
+        <script>
+          $( function() {
+            $( "#circleShape" ).draggable();
+          } );
+          </script>
     </body>
 </html>
