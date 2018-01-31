@@ -31,14 +31,24 @@ var app = {
     onDeviceReady: function() {
         this.receivedEvent('deviceready');
         app.fillDate('fecha-content');
-
         $.getJSON('http://weisseamsel.altervista.org/nfcProject/getAnomaly.php',function(data){
             jQuery.each(data, function(i,val){
                 console.log(JSON.stringify(val));
                 app.fillRow(val);
             });
         });
+        app.removeLocalStorage();
 
+    },
+    removeLocalStorage:function(){
+        localStorage.removeItem("operation_name");
+        localStorage.removeItem("operation_line");
+        localStorage.removeItem("operation_op");
+        localStorage.removeItem("product_name");
+        localStorage.removeItem("product_pippo");
+        localStorage.removeItem("severity");
+        localStorage.removeItem("product_number");
+        localStorage.removeItem("defect_number");
     },
     fillDate:function(idElement){
         var today = new Date();
@@ -81,7 +91,7 @@ var app = {
 
         container.appendChild(row);
         console.log(data["priority"]);
-    } 
+    }
    
 };
 

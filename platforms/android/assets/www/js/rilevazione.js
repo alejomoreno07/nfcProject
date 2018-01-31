@@ -38,6 +38,7 @@ var app = {
         app.setNfcEvent('product-search',2);
         app.setSubmit('send-btn-div');
     },
+    
     operation_enable: function(){
         app.operation.click=true;
     },

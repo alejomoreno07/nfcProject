@@ -87,12 +87,37 @@ var app = {
         element.value = data;
         element.nextElementSibling.className ="active";
     },
+    setPossibleData:function(idElement, data){
+        var element = document.getElementById(idElement);
+        if(data != null){
+            element.value = data;
+            element.nextElementSibling.className = "active";
+        }
+    },
+    setPossibleChecked:function(idElement, data){
+        if(data != null && data != 1){
+            var idName = idElement + data;
+            var element = document.getElementById(idName);
+            element.checked = true;
+        }else{
+            var defaultName = idElement + "1";
+            var defaultElement = document.getElementById(defaultName);
+            defaultElement.checked = true;
+        }
+        
+    },
     getInformation:function(){
         var name  = localStorage.getItem("product_name");
         var pippo = localStorage.getItem("product_pippo");
+        var defect = localStorage.getItem("defect_number");
+        var product_number = localStorage.getItem("product_number");
+        var severity = localStorage.getItem("severity");
+
         app.setData('product-name',name);
         app.setData('product-pippo',pippo);
-
+        app.setPossibleData('defect_number', defect);
+        app.setPossibleData('product_number',product_number);
+        app.setPossibleChecked('op',severity);            
     },
     sendInformation:function(){
         var defect_number  = document.getElementById('defect_number').value;

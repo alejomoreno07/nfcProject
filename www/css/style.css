@@ -2,6 +2,19 @@
 	width: 100%;
 }
 
+#circleDiv{
+	
+}
+
+#circleShape{
+	border: 1px solid red;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	z-index: 1000;
+	background: transparent;
+}
+
 #defect_number{
 	padding-left: 0px;
 }
@@ -16,6 +29,10 @@
 
 .full-width{
 	width: 100%;
+}
+
+#imageContainer{
+	z-index: 10;
 }
 
 #label{
@@ -38,7 +55,8 @@
 	background: cyan;
 	max-width: 100%;
 	max-height: 100%;
-	z-index: 0;
+	position: relative;
+	z-index: 10;
 }
 
 
@@ -49,6 +67,7 @@
 .no-padding{
 	padding: 0px;
 }
+
 
 p{
 	margin:0px;

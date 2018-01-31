@@ -31,13 +31,59 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
+        app.fillDate('fecha-content');
+        app.getInformation();
+        app.setSubmit('send-btn-div');
     
     },
+    fillDate:function(idElement){
+        var today = new Date();
+        var day   = today.getDate();
+        var month = today.getMonth()+1;
+        var year  = today.getFullYear();
+        var fecha = document.getElementById(idElement);
+        fecha.innerHTML= day+"-"+month+"-"+year;
+    },
+    getInformation:function(){
+        var name  = localStorage.getItem("product_name");
+        var pippo = localStorage.getItem("product_pippo");
+        app.setData('product-name',name);
+        app.setData('product-pippo',pippo);
+
+    },
+    setData:function(idElement, data){
+        var element = document.getElementById(idElement);
+        element.value = data;
+        element.nextElementSibling.className ="active";
+    },
+    setSubmit:function(idElement){
+        var element = document.getElementById(idElement);
+
+        element.addEventListener('click',function(){
+            
+            if(app.fieldsValidation()){
+                app.sendInformation();
+                window.location.href='analisi.html';   
+            }else{
+                alert('All the fields must be filled in order to proceed.');
+            }
+
+        });
+    },
+    sendInformation:function(){
+        // It must be implemented
+    },
+    fieldsValidation:function(){
+       
+        return true;
+
+    },
+   
    
    
 };
 
-    var mouseEventTypes = {
+var mouseEventTypes = {
     touchstart : "mousedown",
     touchmove : "mousemove",
     touchend : "mouseup"
@@ -81,6 +127,26 @@ var app = {
     document.getElementById("debug").innerHTML = "x "+x+" ,y "+y;
 }
 
+function createDraggableElement(containerId, typeElement, idElement, classElement){
+    //Container for the draggable element
+    var container = document.getElementById(containerId);
+
+    //Setting its features (id and className)
+    var element = document.createElement(typeElement);
+    element.id = idElement;
+    element.className = classElement;
+
+    //Putting the circle inside the container
+    container.appendChild(element);
+
+    //Setting its property of draggable
+    var name_div = "#"+idElement;
+    $(name_div).draggable({
+        containment: "#myImage"
+    });
+
+}
+
 
 function cameraTakePicture() { 
    navigator.camera.getPicture(onSuccess, onFail, { quality: 50,  destinationType: Camera.DestinationType.DATA_URI });  
@@ -89,13 +155,14 @@ function cameraTakePicture() {
     function onSuccess(imageURI) {
         var image = document.getElementById('myImage');
         image.src = imageURI;
-        dragElement(document.getElementById('divCircle'));
+        createDraggableElement("imageContainer","div","circleShape","ui-widget-content");
+        var circle = document.getElementById("circleShape");
+        dragElement(document.getElementById('circleDiv'));
         
     }
-   
    function onFail(message) { 
       alert('Failed because: ' + message); 
-   } 
+   }
 }
 
    
