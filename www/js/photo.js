@@ -31,7 +31,15 @@ var app = {
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
     onDeviceReady: function() {
-    
+        app.getInformation();
+    },
+
+    getInformation:function(){
+        var name  = localStorage.getItem("product_name");
+        var pippo = localStorage.getItem("product_pippo");
+        app.setData('product-name',name);
+        app.setData('product-pippo',pippo);
+
     },
    
    
